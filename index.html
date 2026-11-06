@@ -25,10 +25,10 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>A special question for you... 💌</title>
-    <meta name="description" content="Would you like to go on a date with me? 😊" />
-    <meta property="og:title" content="A special question for you... 💌" />
-    <meta property="og:description" content="Would you like to go on a date with me? 😊" />
+    <title>Coffee with me? ☕</title>
+    <meta name="description" content="Would you like to get coffee with me? ☕" />
+    <meta property="og:title" content="Coffee with me? ☕" />
+    <meta property="og:description" content="Would you like to get coffee with me? ☕" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -452,9 +452,9 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
       <!-- VIEW 1: INITIAL QUESTION                   -->
       <!-- ========================================== -->
       <section id="viewQuestion" class="view active" aria-labelledby="questionHeading">
-        <div class="emoji-badge" aria-hidden="true">💌</div>
-        <h1 id="questionHeading">Would you like to go on a date with me? 😊</h1>
-        <p class="subtitle" id="inviteSubtitle">I'd love to spend some quality time together! ✨</p>
+        <div class="emoji-badge" aria-hidden="true">☕</div>
+        <h1 id="questionHeading">Would you like to get coffee with me? ☕</h1>
+        <p class="subtitle" id="inviteSubtitle">I'd love to grab a cup and spend some quality time together! ✨</p>
 
         <div class="button-group-stage" id="buttonStage">
           <div class="primary-buttons" id="primaryButtonsRow">
@@ -474,8 +474,8 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
       <!-- ========================================== -->
       <section id="viewForm" class="view form-card" aria-labelledby="formHeading">
         <div style="text-align: center;">
-          <div class="emoji-badge" aria-hidden="true">🎉</div>
-          <h2 id="formHeading">Yay! It's a date! 💕</h2>
+          <div class="emoji-badge" aria-hidden="true">☕</div>
+          <h2 id="formHeading">Yay! Coffee date! ☕💕</h2>
           <p class="subtitle">When and where works best for you?</p>
         </div>
 
@@ -512,23 +512,23 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
 
           <!-- Place Picker -->
           <div class="form-group">
-            <label for="placeInput">Place / Idea <span>*</span></label>
+            <label for="placeInput">Place / Cafe <span>*</span></label>
             <div class="input-wrapper">
               <span class="input-icon" aria-hidden="true">📍</span>
               <input 
                 type="text" 
                 id="placeInput" 
                 class="form-control" 
-                placeholder="Where should we go?" 
+                placeholder="Where should we grab coffee?" 
                 required 
                 maxlength="100"
               />
             </div>
-            <div class="form-error-msg" id="placeError">Please suggest or enter a place! 📍</div>
+            <div class="form-error-msg" id="placeError">Please suggest or enter a coffee spot! ☕</div>
           </div>
 
           <button type="submit" class="btn btn-submit" id="btnSubmitForm">
-            Confirm our date! 💌
+            Confirm our coffee date! ☕💌
           </button>
 
           <button type="button" class="btn-secondary" id="btnBackToQuestion">
@@ -542,9 +542,9 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
       <!-- VIEW 3: CONFIRMATION & WHATSAPP CHAT       -->
       <!-- ========================================== -->
       <section id="viewConfirmation" class="view" aria-labelledby="confirmHeading">
-        <div class="emoji-badge" aria-hidden="true">💖</div>
-        <h1 id="confirmHeading">It's a plan! 🥰</h1>
-        <p class="subtitle">Here are the details for our date:</p>
+        <div class="emoji-badge" aria-hidden="true">☕</div>
+        <h1 id="confirmHeading">It's a coffee date! ☕🥰</h1>
+        <p class="subtitle">Here are the details for our coffee date:</p>
 
         <!-- Summary Details Box -->
         <div class="details-box">
@@ -832,7 +832,7 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
         const yourName = (CONFIG.YOUR_NAME && CONFIG.YOUR_NAME !== "YOUR_NAME") ? CONFIG.YOUR_NAME : "there";
 
         const prefilledMessage = 
-          `Hey ${yourName}! 💕 I'd love to go on a date with you!\n\n` +
+          `Hey ${yourName}! ☕ I'd love to get coffee with you!\n\n` +
           `📅 Date: ${formattedDate}\n` +
           `⏰ Time: ${formattedTime}\n` +
           `📍 Place: ${chosenPlace}\n\n` +
@@ -920,7 +920,7 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
 
       // 6. Ambient Floating Hearts / Emojis in Background
       const bgDecoration = document.getElementById("bgDecoration");
-      const emojis = ["🌸", "💕", "✨", "🌷", "💖", "🍓", "🧁"];
+      const emojis = ["☕", "🌸", "💕", "✨", "🥐", "💖", "🌷", "🧁"];
 
       for (let i = 0; i < 12; i++) {
         const span = document.createElement("span");
