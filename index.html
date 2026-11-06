@@ -612,12 +612,12 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
       // ================================================================
       const CONFIG = {
         // 1. YOUR_NAME: Your name or nickname
-        YOUR_NAME: "YOUR_NAME",
+        YOUR_NAME: "Chamidu",
 
         // 2. YOUR_WHATSAPP_NUMBER: Your full international phone number with 
         // country code, DIGITS ONLY (no '+', spaces, or dashes).
-        // Example: "15551234567" or "447123456789"
-        YOUR_WHATSAPP_NUMBER: "YOUR_WHATSAPP_NUMBER",
+        // For local number 0750816535 in Sri Lanka, international is 94750816535
+        YOUR_WHATSAPP_NUMBER: "94750816535",
 
         // 3. YOUR_DEFAULT_PLACE: Default date idea suggested in the form
         YOUR_DEFAULT_PLACE: "YOUR_DEFAULT_PLACE"
@@ -625,27 +625,33 @@ vanilla JavaScript. No form data is stored or transmitted anywhere.
       // ================================================================
 
 
-      // Helper: clean and sanitize phone number (removes any accidental non-digits)
+      // Helper: clean and sanitize phone number (removes non-digits and ensures international country code)
       function getCleanPhoneNumber(rawNumber) {
-        if (!rawNumber || rawNumber === "YOUR_WHATSAPP_NUMBER") {
-          return "1234567890";
+        if (!rawNumber) return "94750816535";
+        let cleaned = rawNumber.replace(/\D/g, "");
+        // If entered with local trunk prefix 07X (10 digits), convert to international 947X
+        if (cleaned.length === 10 && cleaned.startsWith("0")) {
+          cleaned = "94" + cleaned.slice(1);
         }
-        return rawNumber.replace(/\D/g, "");
+        return cleaned || "94750816535";
       }
 
       // Helper: format phone number for aesthetic display
       function formatPhoneForDisplay(rawNumber) {
-        if (!rawNumber || rawNumber === "YOUR_WHATSAPP_NUMBER") {
-          return "+1 (555) 019-2834";
+        const cleaned = rawNumber ? rawNumber.replace(/\D/g, "") : "";
+        if (cleaned === "94750816535" || cleaned === "0750816535") {
+          return "075 081 6535 (+94 75 081 6535)";
         }
-        const cleaned = rawNumber.replace(/\D/g, "");
+        if (cleaned.length === 10 && cleaned.startsWith("0")) {
+          return `${cleaned.slice(0, 3)} ${cleaned.slice(3, 6)} ${cleaned.slice(6)}`;
+        }
+        if (cleaned.length === 11 && cleaned.startsWith("94")) {
+          return `+94 ${cleaned.slice(2, 4)} ${cleaned.slice(4, 7)} ${cleaned.slice(7)}`;
+        }
         if (cleaned.length === 11 && cleaned.startsWith("1")) {
           return `+1 (${cleaned.slice(1, 4)}) ${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
         }
-        if (cleaned.length === 10) {
-          return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
-        }
-        return `+${cleaned}`;
+        return cleaned ? `+${cleaned}` : "075 081 6535";
       }
 
       // DOM Elements
